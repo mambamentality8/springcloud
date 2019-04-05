@@ -1,0 +1,32 @@
+server:
+  port: 9000
+
+
+#服务的名称
+spring:
+  application:
+    name: api-gateway
+
+
+
+#指定注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+#/order-service/api/v1/order/save?user_id=2&product_id=1
+#自定义路由映射
+zuul:
+  routes:
+    order-service: /apigateway/**
+    #下面的会将上面的给覆盖掉
+    product-service: /apigateway/**
+
+  #加了这个之后只能通过apigateway对外提供访问
+  ignored-patterns: /*-service/**
+  #只让这一个服务对外只能用apigateway对外提供访问
+  #ignored-services: product-service
+
+

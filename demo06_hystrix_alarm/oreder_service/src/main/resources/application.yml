@@ -1,0 +1,32 @@
+server:
+  port: 8781
+
+
+#指定注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+#服务的名称
+spring:
+  application:
+    name: order-service
+  redis:
+      database: 0
+      host: 127.0.0.1
+      port: 6379
+      timeout: 2000
+#自定义负载均衡策略
+#product-service:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+      config:
+          default:
+              connectTimeout: 2000
+              readTimeout: 2000
+
