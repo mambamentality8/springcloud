@@ -1,3 +1,4 @@
+#客户端以877x开头
 server:
   port: 8771
 
@@ -8,7 +9,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
-#服务的名称
+#客户端服务的名称
 spring:
   application:
     name: product-service

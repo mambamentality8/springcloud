@@ -16,24 +16,25 @@ public class ProductController {
 
     /**
      * 获取所有商品列表
+     *
      * @return
      */
     @RequestMapping("list")
-    public Object list(){
+    public Object list() {
         return productService.listProduct();
     }
 
 
     /**
      * 根据id查找商品详情
+     *
      * @param id
      * @return
      */
     @RequestMapping("find")
-    public Object findById(@RequestParam("id") int id){
+    public Object findById(@RequestParam("id") int id) {
         return productService.findById(id);
     }
-
 
 
 }
